@@ -1,15 +1,7 @@
-export async function consumirDatos(){
-    let url="http://localhost:8080/PersonasBD/v1/proveedor"
+import axios from 'axios';
 
-    let peticiones={
-        method:"GET"
-    }
+const instance = axios.create({
+    baseURL: 'http://localhost:8080/api',
+});
 
-   let respuesta=await fetch(url,peticiones)
-
-   let datos=await respuesta.json()
-
-   console.log(datos)
-
-} 
-
+export default instance;
