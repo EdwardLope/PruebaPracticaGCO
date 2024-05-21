@@ -1,14 +1,26 @@
 import './App.css'
 import React from 'react';
-
+import Swal from 'sweetalert2'
 
 
 function App() {
+
+  document.getElementById("formulario").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    Swal.fire({
+      title: "Perfecto",
+      text: "sus datos fueron enviados",
+      icon: "success"
+    });
+
+  });
+
   return (
     <main>
       <h2>Formulario de Proveedor</h2>
       
-      <form action="PersonasBD/v1/proveedor" method="POST" encType="multipart/form-data">
+      <form id='formulario' action="PersonasBD/v1/proveedor" method="POST" encType="multipart/form-data">
         <div>
           <label htmlFor="tipoPersona">Tipo de Persona:</label>
           <select id="tipoPersona" name="tipoPersona" required>
@@ -58,7 +70,7 @@ function App() {
         </div>
 
         <div>
-          <input type="submit" value="Enviar" />
+          <input type="submit" value="Enviar" onClick={Alerta} />
         </div>
       </form>
     </main>
